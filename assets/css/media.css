@@ -1,0 +1,107 @@
+/* =========================================================================
+   SPECTRUM ENTERTAINMENT
+   media.css  ·  CAMADA DE TROCA
+
+   Este e o unico arquivo que voce edita quando a fotografia propria chegar.
+   Enquanto as linhas estiverem comentadas, o site usa os fundos padrao e
+   fica no ar normalmente. Descomentar uma linha liga a foto correspondente,
+   ja com a mascara escura aplicada. Nada mais precisa mudar.
+
+   Carregue sempre DEPOIS de styles.css.
+   ========================================================================= */
+
+:root{
+
+  /* -----------------------------------------------------------------
+     LOGOTIPO
+     Trocar aqui troca o simbolo em todas as paginas de uma vez.
+     Aceita SVG ou PNG. Se um dia chegar o vetor oficial do designer,
+     basta substituir o arquivo ou apontar para o novo nome.
+     ----------------------------------------------------------------- */
+  --logo-simbolo:url("../logo/spectrum-simbolo.svg");
+
+  /* alternativas prontas:
+  --logo-simbolo:url("../logo/spectrum-simbolo-branco.svg");
+  --logo-simbolo:url("../logo/icone-512.png");
+  --logo-simbolo:url("../img/logo-oficial.svg");
+  */
+
+
+  /* -----------------------------------------------------------------
+     FOTOGRAFIA
+     Formato: mascara escura primeiro, imagem depois. A mascara ja esta
+     calibrada para o texto continuar legivel. Nao remova o gradiente.
+     Arquivo: JPG, minimo 2400px de largura, salvo em assets/img/.
+     ----------------------------------------------------------------- */
+
+  /* Fundo do hero. Plano geral de plateia ou palco em contraluz,
+     com area vazia a esquerda para o titulo. */
+  /*
+  --foto-hero:
+    linear-gradient(100deg, rgba(13,13,13,.94) 8%, rgba(13,13,13,.72) 52%, rgba(13,13,13,.88) 100%),
+    url("../img/hero.jpg");
+  */
+
+  /* Imagem dentro dos cards das tres portas. */
+  /*
+  --foto-card:
+    linear-gradient(180deg, rgba(13,13,13,.35), rgba(13,13,13,.75)),
+    url("../img/card.jpg");
+  */
+
+  /* Fundo do bloco de chamada final. */
+  /*
+  --foto-chamada:
+    linear-gradient(90deg, rgba(13,13,13,.92) 20%, rgba(13,13,13,.68) 100%),
+    url("../img/chamada.jpg");
+  */
+
+  /* Retrato dos socios. Quando existir, apague tambem o atributo
+     data-inicial dos tres blocos .socio no HTML. */
+  /*
+  --foto-socio:
+    linear-gradient(180deg, rgba(13,13,13,.10), rgba(13,13,13,.85)),
+    url("../img/socios.jpg");
+  */
+}
+
+
+/* -------------------------------------------------------------------
+   FOTOS INDIVIDUAIS POR CARD
+   Se cada uma das tres portas ganhar uma foto diferente, descomente o
+   bloco abaixo e nomeie os arquivos como empresas.jpg, agencias.jpg e
+   celebracoes.jpg.
+   ------------------------------------------------------------------- */
+/*
+#porta-empresas .card__midia{
+  --foto-card:linear-gradient(180deg,rgba(13,13,13,.35),rgba(13,13,13,.75)),
+    url("../img/empresas.jpg");
+}
+#porta-agencias .card__midia{
+  --foto-card:linear-gradient(180deg,rgba(13,13,13,.35),rgba(13,13,13,.75)),
+    url("../img/agencias.jpg");
+}
+#porta-celebracoes .card__midia{
+  --foto-card:linear-gradient(180deg,rgba(13,13,13,.35),rgba(13,13,13,.75)),
+    url("../img/celebracoes.jpg");
+}
+*/
+
+
+/* -------------------------------------------------------------------
+   LOGOTIPOS DE CLIENTE
+   Enquanto nao houver os arquivos, a secao usa a parede tipografica,
+   que e uma solucao legitima e nao parece espaco vazio. Quando os PNG
+   transparentes chegarem, troque o bloco .parede no HTML por .logos e
+   descomente as regras abaixo.
+   ------------------------------------------------------------------- */
+/*
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--linha);border:1px solid var(--linha);
+  border-radius:var(--raio);overflow:hidden}
+.logos div{background:var(--superficie);min-height:104px;display:grid;
+  place-items:center;padding:1.5rem}
+.logos img{max-height:38px;width:auto;opacity:.62;filter:grayscale(1) brightness(1.7);
+  transition:opacity .2s ease,filter .2s ease}
+.logos div:hover img{opacity:1;filter:none}
+*/

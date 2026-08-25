@@ -1,0 +1,15 @@
+Coloque aqui a fotografia propria, em JPG, minimo 2400px de largura.
+
+Nomes esperados pelos blocos ja preparados em assets/css/media.css:
+
+  hero.jpg         plano geral de plateia ou palco em contraluz,
+                   com area vazia a esquerda para o titulo
+  card.jpg         imagem generica para os cards das tres portas
+  chamada.jpg      fundo do bloco de chamada final
+  socios.jpg       retrato dos tres socios, meio corpo, fundo escuro
+
+Opcional, uma foto por porta:
+  empresas.jpg  agencias.jpg  celebracoes.jpg
+
+Regras: sem filtro, sem marca d'agua, sem logo de fotografo aplicado.
+Priorize cenas escuras com fonte de luz dentro do quadro.

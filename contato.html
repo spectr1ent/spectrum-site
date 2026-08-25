@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contato e orçamento, Spectrum</title>
+<meta name="description" content="Envie data, local e público estimado. Devolvemos proposta com escopo técnico definido.">
+<link rel="canonical" href="https://spectrument.com.br/contato.html">
+<meta name="theme-color" content="#0D0D0D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contato e orçamento, Spectrum">
+<meta property="og:description" content="Envie data, local e público estimado. Devolvemos proposta com escopo técnico definido.">
+<meta property="og:url" content="https://spectrument.com.br/contato.html">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="assets/logo/spectrum-simbolo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo/icone-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/logo/icone-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=Orbitron:wght@700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/media.css">
+</head>
+<body>
+<a href="#conteudo" class="sr">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="wrap topo__in">
+    <a class="marca" href="index.html" aria-label="Spectrum Entertainment, página inicial">
+      <span class="marca__simbolo" aria-hidden="true"></span>
+      <span>
+        <span class="marca__nome">SPECTRUM</span>
+        <span class="marca__desc">Entertainment</span>
+      </span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+    <nav class="nav" id="nav" data-aberto="0">
+      <a href="producao-tecnica.html">Produção Técnica</a>
+      <a href="locacao.html">Locação</a>
+      <a href="estrutura-e-metodo.html">Estrutura e Método</a>
+      <a href="booking-e-cobertura.html">Booking e Cobertura</a>
+      <a class="btn btn--primario btn--pequeno" href="contato.html" aria-current="page">Orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="hero hero--pagina grao">
+    <div class="feixes" aria-hidden="true"><i></i><i></i></div>
+    <div class="wrap hero__in">
+      <p class="rotulo">Contato</p>
+      <h1>Solicitar orçamento</h1>
+      <p class="hero__sub">Quanto mais específico o pedido, mais rápida e precisa a proposta. Respondemos em até um dia útil.</p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="grade grade--2" style="gap:clamp(2.5rem,6vw,5rem);align-items:start">
+
+        <div data-revela>
+          <p class="rotulo">Formulário</p>
+          <form class="form" id="form-orcamento" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Troque pela sua chave gratuita em web3forms.com. Ate la o envio falha
+                 e o visitante e direcionado ao WhatsApp pela mensagem de erro. -->
+            <input type="hidden" name="access_key" value="bd0478e3-39ce-47c7-bf00-c8355e382014">
+            <input type="hidden" name="subject" value="Nova solicitação de orçamento pelo site">
+            <input type="hidden" name="from_name" value="Site Spectrum">
+            <input type="checkbox" name="botcheck" class="sr" tabindex="-1" autocomplete="off">
+
+            <div class="campo">
+              <label for="nome">Nome</label>
+              <input id="nome" name="Nome" type="text" required autocomplete="name">
+            </div>
+            <div class="campo">
+              <label for="empresa">Empresa ou produtora</label>
+              <input id="empresa" name="Empresa" type="text" autocomplete="organization">
+            </div>
+            <div class="campo">
+              <label for="email">E-mail</label>
+              <input id="email" name="E-mail" type="email" required autocomplete="email">
+            </div>
+            <div class="campo">
+              <label for="whats">WhatsApp</label>
+              <input id="whats" name="WhatsApp" type="tel" required autocomplete="tel"
+                     placeholder="(11) 90000-0000">
+            </div>
+            <div class="campo">
+              <label for="tipo">Tipo de evento</label>
+              <select id="tipo" name="Tipo de evento" required>
+                <option value="">Selecione</option>
+                <option>Corporativo</option>
+                <option>Show ou festival</option>
+                <option>Celebração</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="data">Data do evento</label>
+              <input id="data" name="Data" type="date" required>
+            </div>
+            <div class="campo">
+              <label for="local">Cidade e local</label>
+              <input id="local" name="Cidade e local" type="text" required>
+            </div>
+            <div class="campo">
+              <label for="publico">Público estimado</label>
+              <select id="publico" name="Público estimado" required>
+                <option value="">Selecione</option>
+                <option>Até 50</option>
+                <option>51 a 150</option>
+                <option>151 a 300</option>
+                <option>301 a 600</option>
+                <option>Acima de 600</option>
+              </select>
+            </div>
+
+            <div class="grupo">
+              <span>O que você precisa</span>
+              <div class="opcoes">
+            <label><input type="checkbox" name="Precisa de" value="Áudio"><span>Áudio</span></label>
+            <label><input type="checkbox" name="Precisa de" value="Iluminação"><span>Iluminação</span></label>
+            <label><input type="checkbox" name="Precisa de" value="Painel de LED ou projeção"><span>Painel de LED ou projeção</span></label>
+            <label><input type="checkbox" name="Precisa de" value="Equipe técnica"><span>Equipe técnica</span></label>
+            <label><input type="checkbox" name="Precisa de" value="Booking"><span>Booking</span></label>
+            <label><input type="checkbox" name="Precisa de" value="Cobertura"><span>Cobertura</span></label>
+            <label><input type="checkbox" name="Precisa de" value="Ainda não sei"><span>Ainda não sei</span></label>
+              </div>
+            </div>
+
+            <div class="campo campo--largo">
+              <label for="detalhes">Detalhes</label>
+              <textarea id="detalhes" name="Detalhes"
+                placeholder="Horário, formato do evento, atrações, restrições do espaço, o que já está contratado."></textarea>
+            </div>
+
+            <div class="form__rodape">
+              <button class="btn btn--primario" type="submit">Enviar solicitação</button>
+              <p class="form__estado" id="form-estado" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+
+        <div data-revela>
+          <p class="rotulo">Canais diretos</p>
+          <ul class="contato-canais">
+            <li>
+              <b>WhatsApp</b>
+              <a href="https://wa.me/5511917513749" rel="noopener">(11) 91751-3749</a>
+            </li>
+            <li>
+              <b>E-mail</b>
+              <a href="mailto:comercial@spectrument.com.br">comercial@spectrument.com.br</a>
+            </li>
+            <li>
+              <b>Instagram</b>
+              <a href="https://instagram.com/spectrument_" rel="noopener">@spectrument_</a>
+            </li>
+            <li>
+              <b>Atendimento</b>
+              <span style="color:var(--prata)">ABC Paulista, São Paulo capital, Grande São
+              Paulo, interior e litoral</span>
+            </li>
+            <li>
+              <b>Base</b>
+              <span style="color:var(--prata)">São Bernardo do Campo, SP</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape__grade">
+      <div>
+        <a class="marca" href="index.html" aria-label="Spectrum Entertainment">
+          <span class="marca__simbolo" aria-hidden="true"></span>
+          <span>
+            <span class="marca__nome">SPECTRUM</span>
+            <span class="marca__desc">Entertainment</span>
+          </span>
+        </a>
+        <p class="mt-s" style="color:var(--cinza);font-size:var(--t-mini);max-width:34ch">
+          Produção técnica de eventos: áudio, luz e vídeo.
+        </p>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="producao-tecnica.html">Produção Técnica</a></li>
+          <li><a href="locacao.html">Locação</a></li>
+          <li><a href="estrutura-e-metodo.html">Estrutura e Método</a></li>
+          <li><a href="booking-e-cobertura.html">Booking e Cobertura</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <ul style="color:var(--prata);font-size:.93rem">
+          <li>ABC Paulista</li>
+          <li>São Paulo capital</li>
+          <li>Grande São Paulo</li>
+          <li>Interior e litoral</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5511917513749" rel="noopener">(11) 91751-3749</a></li>
+          <li><a href="mailto:comercial@spectrument.com.br">comercial@spectrument.com.br</a></li>
+          <li><a href="https://instagram.com/spectrument_" rel="noopener">@spectrument_</a></li>
+          <li style="color:var(--cinza);font-size:.9rem">São Bernardo do Campo, SP</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape__fim">
+      <span>© 2026 Spectrum Entertainment</span>
+      <span>Razão social e CNPJ a incluir</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

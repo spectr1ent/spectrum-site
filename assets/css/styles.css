@@ -1,0 +1,446 @@
+/* =========================================================================
+   SPECTRUM ENTERTAINMENT
+   styles.css  ·  tokens, base e componentes
+   Nao edite este arquivo para trocar imagens. Use assets/css/media.css.
+   ========================================================================= */
+
+/* ---------- 1. TOKENS ---------- */
+:root{
+  /* cor */
+  --preto:#0D0D0D;
+  --superficie:#141416;
+  --superficie-alta:#1C1C20;
+  --linha:#2A2A2F;
+  --cinza:#686B6E;
+  --prata:#B3B3B3;
+  --texto:#F2F3F5;
+  --azul:#0077FF;
+  --azul-fundo:#0047A3;
+  --azul-foco:#00A3FF;
+
+  /* usados pelo SVG do simbolo */
+  --spectrum-prata:var(--prata);
+  --spectrum-azul:var(--azul);
+
+  /* tipografia */
+  --display:"Archivo",system-ui,-apple-system,sans-serif;
+  --corpo:"Raleway",system-ui,-apple-system,sans-serif;
+  --util:"Orbitron",system-ui,sans-serif;
+
+  --t-hero:clamp(2.4rem,6.2vw,4.4rem);
+  --t-h2:clamp(1.7rem,3.6vw,2.6rem);
+  --t-h3:1.22rem;
+  --t-corpo:1.0625rem;
+  --t-mini:0.8125rem;
+  --t-rotulo:0.66rem;
+
+  /* espaco */
+  --max:1200px;
+  --gutter:clamp(1.25rem,4vw,2.5rem);
+  --secao:clamp(4.5rem,9vw,7.5rem);
+  --raio:10px;
+
+  /* movimento */
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* ---------- 2. BASE ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--preto);
+  color:var(--texto);
+  font-family:var(--corpo);
+  font-size:var(--t-corpo);
+  line-height:1.68;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.08;
+  letter-spacing:-.022em;margin:0}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--azul-foco);outline-offset:3px;border-radius:4px}
+::selection{background:var(--azul);color:#fff}
+
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.secao{padding-block:var(--secao);border-top:1px solid var(--linha)}
+.medida{max-width:62ch}
+.mt-s{margin-top:1rem}.mt-m{margin-top:1.75rem}.mt-l{margin-top:3rem}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- 3. GRAO E LUZ (substitui fotografia) ---------- */
+/* O grao mata o banding das transicoes escuras. Sem ele, degrade em preto
+   vira faixa listrada em tela ruim. */
+.grao::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- 4. RÓTULO E RÉGUA TÉCNICA (assinatura) ---------- */
+.rotulo{
+  font-family:var(--util);font-weight:700;font-size:var(--t-rotulo);
+  letter-spacing:.22em;text-transform:uppercase;color:var(--azul);
+  display:flex;align-items:center;gap:.75rem;margin:0 0 1.5rem;
+}
+.rotulo::before{content:"";width:24px;height:2px;background:var(--azul);flex:none}
+.rotulo--prata{color:var(--cinza)}
+.rotulo--prata::before{background:var(--cinza)}
+
+/* ---------- 5. BOTÕES ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  font-family:var(--display);font-weight:700;font-size:.94rem;letter-spacing:-.01em;
+  padding:.92rem 1.6rem;border-radius:var(--raio);border:1px solid transparent;
+  cursor:pointer;transition:background .18s var(--ease),border-color .18s var(--ease),
+    color .18s var(--ease),transform .18s var(--ease);
+}
+.btn--primario{background:var(--azul);color:#fff}
+.btn--primario:hover{background:var(--azul-fundo)}
+.btn--secundario{border-color:var(--linha);color:var(--texto);background:transparent}
+.btn--secundario:hover{border-color:var(--cinza);background:var(--superficie)}
+.btn:active{transform:translateY(1px)}
+.btn--pequeno{padding:.62rem 1.1rem;font-size:.85rem}
+
+.link-seta{
+  display:inline-flex;align-items:center;gap:.45rem;color:var(--azul);
+  font-family:var(--display);font-weight:500;font-size:.92rem;
+}
+.link-seta::after{content:"→";transition:transform .18s var(--ease)}
+.link-seta:hover::after{transform:translateX(4px)}
+
+/* ---------- 6. CABEÇALHO ---------- */
+.topo{
+  position:sticky;top:0;z-index:50;
+  background:rgba(13,13,13,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .25s var(--ease);
+}
+.topo[data-rolado="1"]{border-bottom-color:var(--linha)}
+.topo__in{display:flex;align-items:center;justify-content:space-between;
+  gap:1.5rem;height:74px}
+
+/* O simbolo entra por CSS. Trocar o arquivo em media.css troca em todo o site. */
+.marca{display:flex;align-items:center;gap:.72rem}
+.marca__simbolo{
+  width:38px;height:42px;flex:none;
+  background-image:var(--logo-simbolo);
+  background-repeat:no-repeat;background-position:center;background-size:contain;
+}
+.marca__nome{font-family:var(--util);font-weight:700;font-size:1.02rem;
+  letter-spacing:.15em;line-height:1;color:var(--texto)}
+.marca__desc{font-family:var(--corpo);font-weight:500;font-size:.44rem;
+  letter-spacing:.36em;text-transform:uppercase;color:var(--azul-foco);
+  margin-top:.28rem;display:block}
+
+.nav{display:flex;align-items:center;gap:1.9rem}
+.nav a{font-size:.9rem;color:var(--prata);transition:color .18s var(--ease)}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--texto)}
+.menu-btn{display:none;background:none;border:0;padding:.5rem;color:var(--texto);cursor:pointer}
+.menu-btn svg{width:24px;height:24px}
+
+/* ---------- 7. HERO SEM FOTOGRAFIA ----------
+   Tres camadas: foto (vazia por padrao), cones de luz de palco e o preto base.
+   Quando a foto entrar em media.css, ela vira a primeira camada e as outras
+   continuam servindo de mascara. */
+.hero{
+  position:relative;overflow:hidden;
+  min-height:clamp(560px,82vh,780px);
+  display:flex;align-items:center;
+  background-color:var(--preto);
+  background-image:
+    var(--foto-hero,none),
+    radial-gradient(120% 90% at 18% -20%, rgba(0,119,255,.16), transparent 60%),
+    radial-gradient(100% 80% at 88% -10%, rgba(179,179,179,.07), transparent 58%),
+    radial-gradient(120% 70% at 50% 125%, rgba(0,71,163,.14), transparent 68%);
+  background-size:cover;background-position:center;
+}
+
+/* Feixes de refletor. Cones de verdade, recortados e desfocados, para nao
+   deixarem aresta reta na tela. Substituem a fotografia de palco. */
+.feixes{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+/* o recorte fica no filho e o desfoque no pai: em CSS o clip-path e aplicado
+   depois do filter, entao cortar e borrar no mesmo elemento devolve aresta reta */
+.feixes i{position:absolute;top:-16%;display:block;filter:blur(46px)}
+.feixes i::before{content:"";position:absolute;inset:0}
+.feixes i:nth-child(1){left:0;width:42%;height:128%;opacity:.9}
+.feixes i:nth-child(1)::before{
+  background:linear-gradient(to bottom, rgba(0,119,255,.46), rgba(0,119,255,0) 76%);
+  clip-path:polygon(40% 0,58% 0,100% 100%,2% 100%);
+}
+.feixes i:nth-child(2){right:2%;width:30%;height:116%;opacity:.75}
+.feixes i:nth-child(2)::before{
+  background:linear-gradient(to bottom, rgba(242,243,245,.22), rgba(242,243,245,0) 70%);
+  clip-path:polygon(44% 0,58% 0,96% 100%,8% 100%);
+}
+.hero__in{position:relative;z-index:3;width:100%;padding-block:clamp(5rem,12vh,8rem)}
+.hero h1{font-size:var(--t-hero);max-width:17ch}
+.hero__sub{color:var(--prata);max-width:56ch;margin-top:1.4rem;font-size:1.09rem}
+.hero__acoes{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.4rem}
+
+/* ---------- 8. BARRA DE ESPECTRO (elemento de assinatura) ----------
+   Analisador de espectro desenhado em CSS. Nome da empresa virando forma,
+   e vocabulario de audio, luz e video sem precisar de nenhuma foto. */
+.espectro{
+  position:absolute;left:0;right:0;bottom:0;z-index:1;
+  display:flex;align-items:flex-end;gap:3px;height:120px;
+  padding-inline:var(--gutter);opacity:.46;pointer-events:none;
+  mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);
+}
+.espectro span{
+  flex:1 1 0;border-radius:2px 2px 0 0;
+  background:linear-gradient(to top,var(--azul),rgba(0,163,255,.05));
+  height:var(--h,20%);
+  transform-origin:bottom;transform:scaleY(0);
+  animation:sobe .9s var(--ease) forwards;animation-delay:var(--d,0ms);
+}
+@keyframes sobe{to{transform:scaleY(1)}}
+
+/* ---------- 9. RÉGUA DE DADOS ---------- */
+.dados{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--linha);border-block:1px solid var(--linha)}
+.dados div{background:var(--preto);padding:2.1rem var(--gutter)}
+.dados b{display:block;font-family:var(--util);font-weight:700;
+  font-size:clamp(1.6rem,3.4vw,2.15rem);letter-spacing:-.01em;color:var(--texto);
+  font-variant-numeric:tabular-nums}
+.dados span{display:block;margin-top:.4rem;color:var(--cinza);font-size:var(--t-mini)}
+
+/* ---------- 10. CARDS ---------- */
+.grade{display:grid;gap:1.25rem}
+.grade--3{grid-template-columns:repeat(3,1fr)}
+.grade--4{grid-template-columns:repeat(4,1fr)}
+.grade--2{grid-template-columns:repeat(2,1fr)}
+
+.card{
+  position:relative;overflow:hidden;
+  background:var(--superficie);border:1px solid var(--linha);
+  border-radius:var(--raio);padding:1.9rem 1.7rem;
+  transition:background .2s var(--ease),border-color .2s var(--ease),
+    transform .2s var(--ease);
+}
+/* fio de luz no topo, no lugar de sombra: le como metal escovado */
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(242,243,245,.16),transparent);
+}
+.card:hover{background:var(--superficie-alta);border-color:#33333A;transform:translateY(-2px)}
+.card h3{font-size:var(--t-h3);margin-bottom:.65rem}
+.card p{color:var(--prata);font-size:.97rem}
+.card .link-seta{margin-top:1.15rem}
+
+/* card com area de imagem reservada: hoje mostra o padrao, amanha a foto */
+.card__midia{
+  aspect-ratio:16/10;border-radius:6px;margin-bottom:1.35rem;
+  background-color:#101013;
+  background-image:
+    var(--foto-card,none),
+    radial-gradient(70% 100% at 30% 0%, rgba(0,119,255,.18), transparent 65%),
+    repeating-linear-gradient(90deg, rgba(242,243,245,.045) 0 1px, transparent 1px 9px);
+  background-size:cover;background-position:center;
+  border:1px solid var(--linha);
+}
+
+/* ---------- 11. LISTAS DE SERVIÇO E CLIENTE ---------- */
+.lista-linhas{border-top:1px solid var(--linha)}
+.lista-linhas li{
+  display:grid;grid-template-columns:minmax(180px,.9fr) 2fr;gap:1.5rem;
+  padding:1.6rem 0;border-bottom:1px solid var(--linha);
+}
+.lista-linhas h3{font-size:var(--t-h3)}
+.lista-linhas p{color:var(--prata);font-size:.97rem}
+
+/* parede de clientes em tipografia, enquanto nao ha logotipo dos clientes */
+.parede{display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:var(--raio);
+  overflow:hidden}
+.parede div{background:var(--superficie);padding:1.35rem 1.4rem;
+  display:flex;align-items:center;min-height:92px}
+.parede b{font-family:var(--util);font-weight:700;font-size:.9rem;
+  letter-spacing:.09em;color:var(--prata);line-height:1.35}
+
+.marcas{display:flex;flex-wrap:wrap;gap:.5rem}
+.marcas span{
+  font-family:var(--util);font-size:.68rem;font-weight:700;letter-spacing:.1em;
+  color:var(--cinza);border:1px solid var(--linha);border-radius:999px;
+  padding:.42rem .85rem;
+}
+
+/* ---------- 12. BLOCO DE ORIGEM ---------- */
+.origem{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);
+  align-items:center}
+/* monograma no lugar do retrato dos socios, ate a foto chegar */
+.socios{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--linha);border:1px solid var(--linha);border-radius:var(--raio);
+  overflow:hidden}
+.socio{
+  position:relative;aspect-ratio:3/4;background-color:var(--superficie);
+  background-image:var(--foto-socio,none);background-size:cover;background-position:center;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.1rem;
+}
+.socio::before{
+  content:attr(data-inicial);position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--util);font-weight:700;font-size:2.6rem;color:#2F2F38;
+}
+.socio b{position:relative;font-family:var(--display);font-size:.9rem;font-weight:700}
+.socio span{position:relative;color:var(--cinza);font-size:.75rem}
+
+/* ---------- 13. CHAMADA FINAL ---------- */
+.chamada{
+  position:relative;overflow:hidden;border-radius:var(--raio);
+  border:1px solid var(--linha);padding:clamp(2.4rem,6vw,4rem);
+  background-color:var(--superficie);
+  background-image:
+    var(--foto-chamada,none),
+    radial-gradient(80% 130% at 12% 0%, rgba(0,119,255,.20), transparent 62%);
+  background-size:cover;background-position:center;
+}
+.chamada h2{font-size:var(--t-h2);max-width:20ch}
+.chamada__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem;margin-top:2rem}
+
+/* ---------- 14. RODAPÉ ---------- */
+.rodape{border-top:1px solid var(--linha);padding-block:3.5rem 2.5rem;margin-top:0}
+.rodape__grade{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:2.5rem 1.5rem}
+.rodape h4{font-family:var(--util);font-size:var(--t-rotulo);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--cinza);margin-bottom:1.1rem}
+.rodape li{margin-bottom:.6rem}
+.rodape a{color:var(--prata);font-size:.93rem}
+.rodape a:hover{color:var(--texto)}
+.rodape__fim{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--linha);
+  display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between;
+  color:var(--cinza);font-size:var(--t-mini)}
+
+/* ---------- 15. REVELAÇÃO POR ROLAGEM ----------
+   O estado escondido so existe quando o JS confirmou que esta rodando.
+   Se o script falhar ou for bloqueado, a pagina aparece inteira. */
+.js [data-revela]{opacity:0;transform:translateY(12px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.js [data-revela].visivel{opacity:1;transform:none}
+
+/* ---------- 16. RESPONSIVO ---------- */
+@media (max-width:900px){
+  .grade--3,.grade--4{grid-template-columns:repeat(2,1fr)}
+  .parede{grid-template-columns:repeat(2,1fr)}
+  .origem{grid-template-columns:1fr}
+  .rodape__grade{grid-template-columns:1fr 1fr}
+  .lista-linhas li{grid-template-columns:1fr;gap:.5rem}
+}
+@media (max-width:680px){
+  .nav{
+    position:fixed;inset:74px 0 auto;flex-direction:column;align-items:stretch;
+    gap:0;background:var(--preto);border-bottom:1px solid var(--linha);
+    padding:1rem var(--gutter) 1.75rem;transform:translateY(-120%);
+    transition:transform .3s var(--ease);
+  }
+  .nav[data-aberto="1"]{transform:none}
+  .nav a{padding:.9rem 0;border-bottom:1px solid var(--linha);font-size:1rem}
+  .nav .btn{margin-top:1rem;width:100%}
+  .menu-btn{display:block}
+  .grade--3,.grade--4,.grade--2{grid-template-columns:1fr}
+  .parede{grid-template-columns:repeat(2,1fr)}
+  .dados{grid-template-columns:1fr}
+  .dados div{padding:1.4rem var(--gutter)}
+  .espectro{height:96px;opacity:.42}
+  .rodape__grade{grid-template-columns:1fr}
+}
+
+/* ---------- 17. ACESSIBILIDADE ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important}
+  .espectro span{transform:none}
+  [data-revela]{opacity:1;transform:none}
+}
+
+/* =========================================================================
+   18. COMPONENTES DAS PÁGINAS INTERNAS
+   ========================================================================= */
+
+/* hero reduzido das internas: mesma linguagem, sem a barra de espectro */
+.hero--pagina{min-height:auto}
+.hero--pagina .hero__in{padding-block:clamp(3.5rem,9vh,5.5rem)}
+.hero--pagina h1{font-size:clamp(2rem,4.6vw,3.1rem);max-width:20ch}
+.hero--pagina .hero__sub{margin-top:1.2rem}
+
+/* bloco de ênfase: filete azul na lateral, sem caixa */
+.destaque{border-left:2px solid var(--azul);padding:.15rem 0 .15rem 1.6rem}
+.destaque h3{font-size:var(--t-h3);margin-bottom:.7rem}
+.destaque p{color:var(--prata)}
+.destaque p + p{margin-top:1rem}
+
+/* passos numerados. A numeração só existe porque a ordem é real. */
+.passos{counter-reset:passo;display:grid;gap:1px;background:var(--linha);
+  border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden}
+.passos li{background:var(--superficie);padding:1.6rem 1.7rem;
+  display:grid;grid-template-columns:auto 1fr;gap:1.3rem;align-items:start}
+.passos li::before{
+  counter-increment:passo;content:counter(passo,decimal-leading-zero);
+  font-family:var(--util);font-weight:700;font-size:.78rem;letter-spacing:.06em;
+  color:var(--azul);padding-top:.28rem;
+}
+.passos h3{font-size:1.02rem;margin-bottom:.3rem}
+.passos p{color:var(--prata);font-size:.96rem}
+
+/* legenda de rodapé de seção */
+.legenda{color:var(--cinza);font-size:var(--t-mini);max-width:72ch}
+
+/* ---------- FORMULÁRIO ---------- */
+.form{display:grid;grid-template-columns:repeat(2,1fr);gap:1.15rem}
+.campo{display:flex;flex-direction:column;gap:.5rem}
+.campo--largo{grid-column:1/-1}
+.campo > label,.grupo > span{
+  font-family:var(--util);font-weight:700;font-size:var(--t-rotulo);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--cinza);
+}
+.campo input,.campo select,.campo textarea{
+  width:100%;background:var(--superficie);border:1px solid var(--linha);
+  border-radius:var(--raio);color:var(--texto);font-family:var(--corpo);
+  font-size:1rem;padding:.88rem 1rem;appearance:none;
+  transition:border-color .18s var(--ease),background .18s var(--ease);
+}
+.campo textarea{min-height:132px;resize:vertical}
+.campo select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23686B6E' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.6rem;
+}
+.campo input:focus,.campo select:focus,.campo textarea:focus{
+  border-color:var(--azul);background:var(--superficie-alta);outline:none;
+}
+.campo input::placeholder,.campo textarea::placeholder{color:#4C4C53}
+
+/* opções em pastilha, com caixa de seleção real por baixo */
+.grupo{grid-column:1/-1;display:flex;flex-direction:column;gap:.75rem}
+.opcoes{display:flex;flex-wrap:wrap;gap:.55rem}
+.opcoes input{position:absolute;opacity:0;width:1px;height:1px}
+.opcoes label{cursor:pointer}
+.opcoes span{
+  display:inline-block;border:1px solid var(--linha);border-radius:999px;
+  padding:.55rem 1.05rem;font-size:.9rem;color:var(--prata);
+  transition:border-color .16s var(--ease),color .16s var(--ease),background .16s var(--ease);
+}
+.opcoes label:hover span{border-color:var(--cinza);color:var(--texto)}
+.opcoes input:checked + span{background:var(--azul);border-color:var(--azul);color:#fff}
+.opcoes input:focus-visible + span{outline:2px solid var(--azul-foco);outline-offset:2px}
+
+.form__rodape{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;
+  gap:1.2rem;margin-top:.6rem}
+.form__estado{font-size:.94rem;display:none}
+.form__estado[data-tipo="ok"]{display:block;color:#4ADE80}
+.form__estado[data-tipo="erro"]{display:block;color:#F87171}
+
+.contato-canais li{margin-bottom:1.1rem}
+.contato-canais b{display:block;font-family:var(--util);font-size:var(--t-rotulo);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--cinza);margin-bottom:.25rem}
+.contato-canais a{color:var(--texto)}
+.contato-canais a:hover{color:var(--azul)}
+
+@media (max-width:680px){
+  .form{grid-template-columns:1fr}
+  .passos li{grid-template-columns:1fr;gap:.5rem}
+}
