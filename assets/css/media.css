@@ -42,13 +42,6 @@
     url("../img/hero.jpg");
   */
 
-  /* Imagem dentro dos cards das tres portas. */
-  /*
-  --foto-card:
-    linear-gradient(180deg, rgba(13,13,13,.35), rgba(13,13,13,.75)),
-    url("../img/card.jpg");
-  */
-
   /* Fundo do bloco de chamada final. */
   /*
   --foto-chamada:
@@ -56,37 +49,15 @@
     url("../img/chamada.jpg");
   */
 
-  /* Retrato dos socios. Quando existir, apague tambem o atributo
-     data-inicial dos tres blocos .socio no HTML. */
-  /*
-  --foto-socio:
-    linear-gradient(180deg, rgba(13,13,13,.10), rgba(13,13,13,.85)),
-    url("../img/socios.jpg");
-  */
 }
 
 
 /* -------------------------------------------------------------------
-   FOTOS INDIVIDUAIS POR CARD
-   Se cada uma das tres portas ganhar uma foto diferente, descomente o
-   bloco abaixo e nomeie os arquivos como empresas.jpg, agencias.jpg e
-   celebracoes.jpg.
+   AREAS DE IMAGEM EM CARD E RETRATO
+   Removidas do layout de proposito. O site precisa parecer completo hoje,
+   sem nenhum espaco reservado denunciando foto futura. Quando a fotografia
+   propria chegar, essas areas voltam ao HTML junto com o componente.
    ------------------------------------------------------------------- */
-/*
-#porta-empresas .card__midia{
-  --foto-card:linear-gradient(180deg,rgba(13,13,13,.35),rgba(13,13,13,.75)),
-    url("../img/empresas.jpg");
-}
-#porta-agencias .card__midia{
-  --foto-card:linear-gradient(180deg,rgba(13,13,13,.35),rgba(13,13,13,.75)),
-    url("../img/agencias.jpg");
-}
-#porta-celebracoes .card__midia{
-  --foto-card:linear-gradient(180deg,rgba(13,13,13,.35),rgba(13,13,13,.75)),
-    url("../img/celebracoes.jpg");
-}
-*/
-
 
 /* -------------------------------------------------------------------
    LOGOTIPOS DE CLIENTE
