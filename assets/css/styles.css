@@ -233,18 +233,6 @@ ul{margin:0;padding:0;list-style:none}
 .card p{color:var(--prata);font-size:.97rem}
 .card .link-seta{margin-top:1.15rem}
 
-/* card com area de imagem reservada: hoje mostra o padrao, amanha a foto */
-.card__midia{
-  aspect-ratio:16/10;border-radius:6px;margin-bottom:1.35rem;
-  background-color:#101013;
-  background-image:
-    var(--foto-card,none),
-    radial-gradient(70% 100% at 30% 0%, rgba(0,119,255,.18), transparent 65%),
-    repeating-linear-gradient(90deg, rgba(242,243,245,.045) 0 1px, transparent 1px 9px);
-  background-size:cover;background-position:center;
-  border:1px solid var(--linha);
-}
-
 /* ---------- 11. LISTAS DE SERVIÇO E CLIENTE ---------- */
 .lista-linhas{border-top:1px solid var(--linha)}
 .lista-linhas li{
@@ -270,24 +258,13 @@ ul{margin:0;padding:0;list-style:none}
   padding:.42rem .85rem;
 }
 
-/* ---------- 12. BLOCO DE ORIGEM ---------- */
-.origem{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);
-  align-items:center}
-/* monograma no lugar do retrato dos socios, ate a foto chegar */
+/* ---------- 12. SÓCIOS ---------- */
 .socios{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
   background:var(--linha);border:1px solid var(--linha);border-radius:var(--raio);
   overflow:hidden}
-.socio{
-  position:relative;aspect-ratio:3/4;background-color:var(--superficie);
-  background-image:var(--foto-socio,none);background-size:cover;background-position:center;
-  display:flex;flex-direction:column;justify-content:flex-end;padding:1.1rem;
-}
-.socio::before{
-  content:attr(data-inicial);position:absolute;inset:0;display:grid;place-items:center;
-  font-family:var(--util);font-weight:700;font-size:2.6rem;color:#2F2F38;
-}
-.socio b{position:relative;font-family:var(--display);font-size:.9rem;font-weight:700}
-.socio span{position:relative;color:var(--cinza);font-size:.75rem}
+.socios li{background:var(--superficie);padding:1.5rem}
+.socios b{display:block;font-family:var(--display);font-weight:700;font-size:1.05rem}
+.socios span{display:block;margin-top:.3rem;color:var(--cinza);font-size:var(--t-mini)}
 
 /* ---------- 13. CHAMADA FINAL ---------- */
 .chamada{
@@ -326,7 +303,6 @@ ul{margin:0;padding:0;list-style:none}
 @media (max-width:900px){
   .grade--3,.grade--4{grid-template-columns:repeat(2,1fr)}
   .parede{grid-template-columns:repeat(2,1fr)}
-  .origem{grid-template-columns:1fr}
   .rodape__grade{grid-template-columns:1fr 1fr}
   .lista-linhas li{grid-template-columns:1fr;gap:.5rem}
 }
@@ -343,6 +319,7 @@ ul{margin:0;padding:0;list-style:none}
   .menu-btn{display:block}
   .grade--3,.grade--4,.grade--2{grid-template-columns:1fr}
   .parede{grid-template-columns:repeat(2,1fr)}
+  .socios{grid-template-columns:1fr}
   .dados{grid-template-columns:1fr}
   .dados div{padding:1.4rem var(--gutter)}
   .espectro{height:96px;opacity:.42}
